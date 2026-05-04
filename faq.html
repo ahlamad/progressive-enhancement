@@ -26,15 +26,15 @@
 				border-radius: 10px;
 				max-width: 600px;
 
-				&:first-of-type:open{
+				&[open]:first-of-type{
 					background-color: var(--purple);
 				}
 
-				&:nth-of-type(2):open{
+				&[open]:nth-of-type(2){
 					background-color: var(--green);
 				}
 
-				&:nth-of-type(3):open{
+				&[open]:nth-of-type(3){
 					background-color: var(--yellow);
 				}
 
@@ -76,15 +76,25 @@
 			}
 
 			/* kruisje maken van de twee strepen */
-  			details:open summary::after {
-				rotate: -45deg;
+  			details[open] summary::after {
+				transform: rotate(-45deg);
+
+				@supports (rotate: -45deg){
+					transform: none;
+					rotate: -45deg
+				}
   			}
 
-  			details:open summary::before {
-				rotate: 45deg;
-  			} 
+  			details[open] summary::before {
+				transform: rotate(45deg);
 
-  			details:open summary {
+				@supports (rotate: 45deg){
+					transform: none;
+					rotate: 45deg
+				}  			
+			} 
+
+  			details[open] summary {
     			outline: none;
 				border: unset;
 			}
