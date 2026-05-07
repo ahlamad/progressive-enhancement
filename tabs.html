@@ -7,10 +7,36 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: kijk eens naar de :target selector
-			   https://developer.mozilla.org/en-US/docs/Web/CSS/:target */
+			nav {
+				display: flex;
+				gap: 1em;				
+				padding: 1em;
+
+				a {
+					text-decoration: none;
+					color: var(--blue);
+					font-weight: bold;
+					display: flex;
+					place-items: center;
+					text-align: center;
+
+					&:hover {
+						text-decoration: underline;
+					}	
+				}
+			}
+
+			ol[id],
+			article[id] {
+				display: none;
+			}
+
+			ol[id]:target,
+			article[id]:target {
+				display: block;						
+  			}
+
 		</style>
 		<script type="module">
 			/* Schrijf hier eventueel je client-side JavaScript */
